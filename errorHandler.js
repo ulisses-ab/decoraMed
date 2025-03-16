@@ -3,7 +3,6 @@ const errorHandler = (err, req, res, next) => {
         message: err.message,
     });
 
-    console.log('\n\n\nGAY\n\n\n')
     console.log(err);
 };
 

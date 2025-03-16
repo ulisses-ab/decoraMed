@@ -24,7 +24,7 @@ mongoose.connect(MONGODB_URI)
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
 
 // Middleware
 const cors = require('cors');
@@ -38,7 +38,7 @@ app.use('/api/decks', decks);
 app.use('/api/cards', cards);
 app.use('/api/study', study)
 app.use('*',  (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
 app.use(errorHandler);
 
