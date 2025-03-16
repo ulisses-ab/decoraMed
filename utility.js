@@ -107,7 +107,7 @@ module.exports.verificationEmail = (recipient, token) => {
                 <p>Olá,</p>
                 <p>Obrigado por se registrar no DecoraMed. Para concluir a criação de sua conta, por favor, clique no link abaixo para verificar seu endereço de email:</p>
                 <p>
-                    <a href="http://localhost:5500/verify/${token}" style="color: #1a73e8; text-decoration: none;">
+                    <a href="https://decoramed-2.onrender.com/api/verify/${token}" style="color: #1a73e8; text-decoration: none;">
                         Verificar Email
                     </a>
                 </p>
