@@ -58,6 +58,9 @@ const Study = () => {
         if(cd.length === 0) {
           setCardsEnded(true);
         }
+        else {
+          setTimes(await getTimes(localStorage.getItem('token'), cd[0]._id));
+        }
 
         return cd.length;
       }
@@ -87,10 +90,12 @@ const Study = () => {
         });
       }
     }
+    else {
+      setTimes(await getTimes(localStorage.getItem('token'), cardsDue[0]._id));
+    }
   }
 
   const handleShowAnswer = async () => {
-    setTimes(await getTimes(localStorage.getItem('token'), cardsDue[0]._id));
     setShowAnswer(true);
   }
 
@@ -103,7 +108,7 @@ const Study = () => {
   }
 
   const handleStudy = async function(difficulty) {
-    await putStudy(localStorage.getItem('token'), cardsDue[0]._id, difficulty)
+    putStudy(localStorage.getItem('token'), cardsDue[0]._id, difficulty)
     setShowAnswer(false);
     nextCard();
   }
