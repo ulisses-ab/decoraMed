@@ -62,7 +62,6 @@ const SlidingCardsComponent = () => {
     
     const [displacement, setDisplacement] = useState(-120);
     const [isMobile, setIsMobile] = useState(false);
-    const [activeCardIndex, setActiveCardIndex] = useState(0);
 
     // Check if device is mobile
     useEffect(() => {
@@ -97,18 +96,6 @@ const SlidingCardsComponent = () => {
         };
     }, [isMobile]);
 
-    // Handle card navigation for mobile
-    const nextCard = () => {
-        setActiveCardIndex((prevIndex) => 
-            prevIndex === cards.length - 1 ? 0 : prevIndex + 1
-        );
-    };
-
-    const prevCard = () => {
-        setActiveCardIndex((prevIndex) => 
-            prevIndex === 0 ? cards.length - 1 : prevIndex - 1
-        );
-    };
 
     return (
         <>
@@ -131,24 +118,7 @@ const SlidingCardsComponent = () => {
             {isMobile && (
                 <div className='py-8 px-4'>
                     <div className='bg-gray-50 w-full h-80 shadow-xl rounded-lg border border-gray-200 mb-4'> 
-                        <StudyComponent cards={[cards[activeCardIndex]]} />
-                    </div>
-                    <div className='flex justify-between mt-4'>
-                        <button 
-                            onClick={prevCard}
-                            className='bg-primary text-white py-2 px-4 rounded-md'
-                        >
-                            Anterior
-                        </button>
-                        <div className='text-gray-600'>
-                            {activeCardIndex + 1} / {cards.length}
-                        </div>
-                        <button 
-                            onClick={nextCard}
-                            className='bg-primary text-white py-2 px-4 rounded-md'
-                        >
-                            Próximo
-                        </button>
+                        <StudyComponent cards={cards.slice(0, 4)} />
                     </div>
                 </div>
             )}

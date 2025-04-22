@@ -15,28 +15,7 @@ const FeedbackButton = ({ color, text, time, onClick }) => {
   )
 }
 
-const StudyComponent = ({ cards = [
-  {
-      type: "Básico",
-      front: "Qual é o antídoto utilizado na intoxicação por heparina não fracionada?",
-      back: "Sulfato de protamina",
-  },
-  {
-    type: "Básico",
-    front: "Qual é o agente etiológico do linfogranuloma venéreo?",
-    back: "Chlamydia trachomatis",
-  },
-  {
-    type: "Básico",
-    front: "Quais são as estruturas clampeadas na manobra de Pringle?",
-    back: `1. Veia porta\n2. Artéria hepática\n3. Colédoco`,
-  },
-  {
-    type: "Básico",
-    front: "Como são as calcificações cerebrais na infecção congênita por zika?",
-    back: "Calcificações periventriculares",
-  },
-]}) => {
+const StudyComponent = ({ cards }) => {
   const [ cardsDue, setCardsDue ] = useState(cards);
   const [ cardsEnded, setCardsEnded ] = useState(false);
   const [ showAnswer, setShowAnswer ] = useState(false);
