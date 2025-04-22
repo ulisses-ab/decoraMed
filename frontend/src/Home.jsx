@@ -23,13 +23,13 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <canvas id='particle-canvas' className='invisible sm:visible absolute w-full h-100 -z-1'></canvas>
+      <canvas id='particle-canvas' className='hidden sm:block absolute w-full h-100 -z-1'></canvas>
 
-      <div className='flex flex-col items-left sm:mt-10 h-100 bg-linear-to-t from-gray-200 to-transparent px-6 sm:px-10 md:px-20'>
+      <div className='flex flex-col sm:items-start items-center sm:mt-10 pb-3 sm:pb-30 bg-linear-to-t from-gray-200 to-transparent px-6 sm:px-10 md:px-20'>
         <main  className="mt-10">
-          <div className="max-w-3xl text-gray-900">
-            <h1 className="text-4xl md:text-6xl font-bold ">Aprenda a não esquecer</h1>
-            <p className="mt-4 text-xl font-normal">
+          <div className="max-w-3xl text-gray-900  flex flex-col text-center sm:text-left items-center sm:items-start">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold ">Aprenda a não esquecer</h1>
+            <p className="mt-4 text-md sm:text-xl font-normal">
               São mais de 6.200 flashcards com todo o conteúdo necessário para que você seja aprovado na sua residência médica dos sonhos.
             </p>
 

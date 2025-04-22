@@ -66,7 +66,7 @@ const Register = () => {
       <Fade/>
       <img 
         src={logo2} 
-        className='h-10 fixed top-6 left-1/2 -translate-x-1/2' 
+        className='h-10 fixed top-6 invisible sm:visible left-1/2 -translate-x-1/2' 
         style={{filter: "brightness(0) saturate(100%) invert(12%) sepia(68%) saturate(4969%) hue-rotate(241deg) brightness(92%) contrast(110%)"}}
       />
 

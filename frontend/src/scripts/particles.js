@@ -11,7 +11,7 @@ export default function run(id) {
 
     new ParticleCanvas(canvas, {
         particles: {
-            number: canvas.width / 20,
+            number: (canvas.width*canvas.height) / 5000,
             size: {
                 min: 0.2,
                 max: 4,

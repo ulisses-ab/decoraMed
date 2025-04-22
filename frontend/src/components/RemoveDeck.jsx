@@ -17,9 +17,9 @@ const RemoveDeck = ({ parentDeck, parentName, close, refresh }) => {
         <>
             <div className='fixed inset-0 backdrop-blur-sm' style={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}} onClick={() => close()}>
             </div>
-            <div className="fixed top-1/2 left-1/2 -translate-1/2 w-1/2 p-8 bg-gray-50 backdrop-blur-xl border border-gray-200 rounded-xl shadow-lg">
+            <div className="fixed top-1/2 left-1/2 -translate-1/2 w-full sm:w-1/2 p-6 bg-gray-50 backdrop-blur-xl border border-gray-200 sm:rounded-xl shadow-lg">
                 <IoCloseOutline className='absolute right-5.5 top-5.5 text-3xl cursor-pointer text-gray-600 hover:text-black' onClick={() => close()}/>
-                <h1 className="text-2xl font-bold text-gray-900 mb-4">Deletar <span className='text-primary'>{parentName ? parentName : "" }</span>?</h1>
+                <h1 className="text-xl sm:text-2xl font-bold w-5/6 sm:w-full text-gray-900 mb-4">Deletar <span className='text-primary'>{parentName ? parentName : "" }</span>?</h1>
                 <div className='mb-5'>Todos os cards e sub-baralhos também serão deletados</div>
                 <div className='flex space-x-4'>
                     <button
