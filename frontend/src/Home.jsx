@@ -18,14 +18,14 @@ const Home = () => {
     }
   }, [isLoggedIn]);
 
-  window.addEventListener('load', () => run());
+  window.addEventListener('load', () => run('particle-canvas'));
 
   return (
     <>
       <Navbar />
-      <canvas id='particle-canvas' className='absolute w-full h-100 -z-1'></canvas>
+      <canvas id='particle-canvas' className='invisible sm:visible absolute w-full h-100 -z-1'></canvas>
 
-      <div className='flex flex-col items-left mt-10 h-100 bg-linear-to-t from-gray-200 to-transparent px-4 sm:px-8 md:px-20'>
+      <div className='flex flex-col items-left sm:mt-10 h-100 bg-linear-to-t from-gray-200 to-transparent px-6 sm:px-10 md:px-20'>
         <main  className="mt-10">
           <div className="max-w-3xl text-gray-900">
             <h1 className="text-4xl md:text-6xl font-bold ">Aprenda a não esquecer</h1>

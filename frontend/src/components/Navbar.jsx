@@ -19,7 +19,7 @@ function Navbar({ destination = '' }) {
     {
       name: 'Comece agora',
       href: 'register',
-      classNames: 'text-white bg-primary hover:bg-transparent hover:text-primary'
+      classNames: 'text-white bg-primary whitespace-nowrap hover:bg-transparent hover:text-primary'
     }
   ];
 

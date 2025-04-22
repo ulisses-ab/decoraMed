@@ -36,7 +36,7 @@ const Login = () => {
         style={{filter: "brightness(0) saturate(100%) invert(12%) sepia(68%) saturate(4969%) hue-rotate(241deg) brightness(92%) contrast(110%)"}}
       />
       <main className='min-h-screen flex items-center justify-center'>
-        <div className='w-full max-w-md lg:max-w-lg p-8 space-y-8 rounded-lg'>
+        <div className='w-full max-w-md lg:max-w-lg p-6 space-y-8 rounded-lg'>
           <form className='space-y-6 ' onSubmit={onSubmit}>
             <div className='text-center text-4xl font-bold text-gray-900'>
               <span>Olá novamente</span>

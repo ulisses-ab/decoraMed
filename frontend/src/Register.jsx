@@ -72,7 +72,7 @@ const Register = () => {
 
       <main className='min-h-screen flex items-center justify-center'>
         {emailSent ? (<EmailSent name={formData.name} email={formData.email} password={formData.password} send={sendRegistration}/>) : (
-          <div className='w-full max-w-md lg:max-w-lg p-8 space-y-8 rounded-lg'>
+          <div className='w-full max-w-md lg:max-w-lg p-6 space-y-8 rounded-lg'>
             <form className='space-y-6 ' onSubmit={onSubmit}>
               <div className='text-center text-4xl font-bold text-gray-900'>
                 <span>Crie sua conta</span>

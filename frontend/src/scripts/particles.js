@@ -1,13 +1,17 @@
 import ParticleCanvas from "./particle-canvas.js";
 
-export default function run() {
-    const canvas = document.getElementById('particle-canvas');
+export default function run(id) {
+    const canvas = document.getElementById(id);
+    if(!canvas) {
+        return;
+    }
+
     canvas.width = canvas.getBoundingClientRect().width
     canvas.height = canvas.getBoundingClientRect().height
 
     new ParticleCanvas(canvas, {
         particles: {
-            number: 80,
+            number: canvas.width / 20,
             size: {
                 min: 0.2,
                 max: 4,
