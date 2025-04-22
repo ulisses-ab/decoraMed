@@ -48,39 +48,42 @@ const Home = () => {
         </div>
       </main>*/}
 
-      <main className='flex flex-col items-center pt-10 sm:pt-25 pb-20 sm:pb-40 bg-linear-to-b from-gray-200 via-transparent via-58% to-transparent'>
-        <div className='text-3xl sm:text-4xl md:text-5xl lg:text-[2.8em] font-bold mb-8 sm:mb-12 text-gray-900 px-4 text-center'>O seu cérebro foi feito para esquecer</div>
-        <div className='flex flex-col md:flex-row justify-center md:space-x-8 lg:space-x-20 w-full mb-12 sm:mb-20 px-4 sm:px-8 md:px-16 lg:px-25'>
-          <div className='w-full md:w-1/2 lg:w-170 mb-8 md:mb-0'>
-            <div className='w-full h-80 sm:h-130 flex flex-col items-center text-base relative'>
-              <ChartComponent />
+      {/*<main className='flex flex-col items-center pt-10 sm:pt-25 pb-20 sm:pb-40 bg-linear-to-b from-gray-200 via-transparent via-58% to-transparent'>
+        <div className='bg-white m-10'>
+          <div className='text-3xl sm:text-4xl md:text-5xl lg:text-[2.8em] font-bold mb-8 sm:mb-12 text-gray-900 px-4 text-center'>O seu cérebro foi feito para esquecer</div>
+          <div className='flex flex-col md:flex-row justify-center md:space-x-8 lg:space-x-20 w-full mb-12 sm:mb-20 px-4 sm:px-8 md:px-16 lg:px-25'>
+            <div className='w-full md:w-1/2 lg:w-170 mb-8 md:mb-0'>
+              <div className='w-full h-80 sm:h-130 flex flex-col items-center text-base relative'>
+                <ChartComponent />
+              </div>
+            </div>
+            <div className='w-full md:w-1/2 text-gray-900 text-base sm:text-lg md:text-xl break-words text-justify'>
+              A curva do esquecimento é um conceito proposto pelo psicólogo alemão Hermann Ebbinghaus no final do século XIX. Ela descreve a tendência natural do ser humano de esquecer informações ao longo do tempo, especialmente nos estágios iniciais após o aprendizado.
+              <br/><br/><span className='font-bold'>1. Aprendizado Inicial: </span>Após aprender algo novo, você retém parte desse conhecimento na memória de curto prazo.
+              <br/><br/><span className='font-bold'>2. Decaimento Rápido: </span>Nos primeiros dias após o aprendizado, ocorre uma rápida perda de conhecimento. Se a informação não for revisada ou praticada ativamente, a retenção diminuirá significativamente em um curto espaço de tempo.
+              <br/><br/><span className='font-bold'>3. Estabilização da Curva: </span>Após o período de decaimento rápido, a curva do esquecimento tende a se estabilizar. Isso significa que a taxa de esquecimento diminui gradualmente ao longo do tempo.
             </div>
           </div>
-          <div className='w-full md:w-1/2 text-gray-900 text-base sm:text-lg md:text-xl break-words text-justify'>
-            A curva do esquecimento é um conceito proposto pelo psicólogo alemão Hermann Ebbinghaus no final do século XIX. Ela descreve a tendência natural do ser humano de esquecer informações ao longo do tempo, especialmente nos estágios iniciais após o aprendizado.
-            <br/><br/><span className='font-bold'>1. Aprendizado Inicial: </span>Após aprender algo novo, você retém parte desse conhecimento na memória de curto prazo.
-            <br/><br/><span className='font-bold'>2. Decaimento Rápido: </span>Nos primeiros dias após o aprendizado, ocorre uma rápida perda de conhecimento. Se a informação não for revisada ou praticada ativamente, a retenção diminuirá significativamente em um curto espaço de tempo.
-            <br/><br/><span className='font-bold'>3. Estabilização da Curva: </span>Após o período de decaimento rápido, a curva do esquecimento tende a se estabilizar. Isso significa que a taxa de esquecimento diminui gradualmente ao longo do tempo.
+          <div className='text-3xl sm:text-4xl md:text-5xl lg:text-[2.8em] font-bold mb-8 sm:mb-12 text-gray-900 px-4 text-center'>Efeito da revisão repetida e espaçada</div>
+          <div className='flex flex-col-reverse md:flex-row justify-center md:space-x-8 lg:space-x-20 w-full px-4 sm:px-8 md:px-16 lg:px-25'>
+            <div className='w-full md:w-1/2 text-gray-900 text-base sm:text-lg md:text-xl break-words text-justify mt-8 md:mt-0'>
+              Ao revisar informações em intervalos específicos, o aluno ativa repetidamente a memória associada àquelas informações, fortalecendo as conexões neurais e obtendo:
+              <div className='leading-7  mt-5 font-semibold'>
+              • Retenção de conteúdo a longo prazo<br/>
+              • Consolidação do conhecimento<br/>
+              • Economia de tempo<br/>
+              • Redução do stress<br/>
+              </div>
+            </div>
+            <div className='w-full md:w-1/2 lg:w-170'>
+              <div className='w-full h-80 flex flex-col items-center text-base relative'>
+                <ChartComponent2 />
+              </div>
+            </div>
           </div>
+                    
         </div>
-        <div className='text-3xl sm:text-4xl md:text-5xl lg:text-[2.8em] font-bold mb-8 sm:mb-12 text-gray-900 px-4 text-center'>Efeito da revisão repetida e espaçada</div>
-        <div className='flex flex-col-reverse md:flex-row justify-center md:space-x-8 lg:space-x-20 w-full px-4 sm:px-8 md:px-16 lg:px-25'>
-          <div className='w-full md:w-1/2 text-gray-900 text-base sm:text-lg md:text-xl break-words text-justify mt-8 md:mt-0'>
-            Ao revisar informações em intervalos específicos, o aluno ativa repetidamente a memória associada àquelas informações, fortalecendo as conexões neurais e obtendo:
-            <div className='leading-7  mt-5 font-semibold'>
-            • Retenção de conteúdo a longo prazo<br/>
-            • Consolidação do conhecimento<br/>
-            • Economia de tempo<br/>
-            • Redução do stress<br/>
-            </div>
-          </div>
-          <div className='w-full md:w-1/2 lg:w-170'>
-            <div className='w-full h-80 flex flex-col items-center text-base relative'>
-              <ChartComponent2 />
-            </div>
-          </div>
-        </div>
-      </main>
+      </main>*/}
       <Footer />
     </>
   );

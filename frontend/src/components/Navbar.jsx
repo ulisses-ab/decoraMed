@@ -59,25 +59,13 @@ function Navbar({ destination = '' }) {
               className='h-10 mr-2' 
               style={{filter: "brightness(0) saturate(100%) invert(12%) sepia(68%) saturate(4969%) hue-rotate(241deg) brightness(92%) contrast(110%)"}}
             />
-            DecoraMed
+            <div className='invisible sm:visible'>
+              DecoraMed
+            </div>
+
           </a>
           
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button 
-              onClick={toggleMobileMenu}
-              className="text-primary focus:outline-none"
-            >
-              {mobileMenuOpen ? (
-                <HiX className="h-6 w-6" />
-              ) : (
-                <HiMenu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
-          
-          {/* Desktop navigation */}
-          <div className="hidden md:block">
+          <div>
             {isLoggedIn ? (
               <div className='relative select-none' onClick={(e) => e.stopPropagation()}>
                 <div 
