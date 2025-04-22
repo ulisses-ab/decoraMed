@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo2 from './../assets/logo2.png';
 import { useAuth } from './../authContext';
 import { FaUserCircle, FaUser } from 'react-icons/fa';
 import { IoIosArrowDown } from "react-icons/io";
+import { HiMenu, HiX } from "react-icons/hi";
 
 function Navbar({ destination = '' }) {
   const { user, isLoggedIn, logout } = useAuth();
   const dropdownRef = useRef(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const actionButtons = [
     { 
@@ -21,10 +23,14 @@ function Navbar({ destination = '' }) {
     }
   ];
 
-  const [dropdownOpen, setDropdownOpen] = React.useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
   };
 
   const handleClickOutside = (event) => {
@@ -33,6 +39,9 @@ function Navbar({ destination = '' }) {
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
   }, []);
 
   const sendHome = () => {
@@ -53,8 +62,23 @@ function Navbar({ destination = '' }) {
             DecoraMed
           </a>
           
-          {
-            isLoggedIn ? (
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button 
+              onClick={toggleMobileMenu}
+              className="text-primary focus:outline-none"
+            >
+              {mobileMenuOpen ? (
+                <HiX className="h-6 w-6" />
+              ) : (
+                <HiMenu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+          
+          {/* Desktop navigation */}
+          <div className="hidden md:block">
+            {isLoggedIn ? (
               <div className='relative select-none' onClick={(e) => e.stopPropagation()}>
                 <div 
                   className='flex space-x-2 items-center cursor-pointer'
@@ -64,7 +88,7 @@ function Navbar({ destination = '' }) {
                   <IoIosArrowDown className='text-gray-900'/>
                 </div>
                 {dropdownOpen && (
-                  <div className='absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-md cursor-pointer overflow-hidden shadow-lg '>
+                  <div className='absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-md cursor-pointer overflow-hidden shadow-lg'>
                     <a onClick={() => { logout(); window.location.href = '/';}} className='block px-4 py-2 text-gray-800 hover:bg-gray-100'>Sair</a>
                   </div>
                 )}
@@ -82,10 +106,44 @@ function Navbar({ destination = '' }) {
                   </li>
                 ))}
               </ul>
-            )
-          }
+            )}
+          </div>
         </div>
       </nav>
+      
+      {/* Mobile menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed top-16 left-0 right-0 bg-white z-10 border-b border-gray-300 shadow-lg">
+          {isLoggedIn ? (
+            <div className="p-4">
+              <p className="font-semibold text-gray-900 mb-2">{user.name}</p>
+              <a 
+                onClick={() => { 
+                  logout(); 
+                  window.location.href = '/';
+                  setMobileMenuOpen(false);
+                }} 
+                className="block py-2 text-gray-800 hover:text-primary cursor-pointer"
+              >
+                Sair
+              </a>
+            </div>
+          ) : (
+            <div className="p-4 flex flex-col space-y-4">
+              {actionButtons.map((button) => (
+                <a 
+                  key={button.name}
+                  href={button.href}
+                  className={`transition font-medium py-2.5 px-3.5 rounded-md outline outline-primary text-center ${button.classNames}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span className='align-[1px]'>{button.name}</span>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 }
