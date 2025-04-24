@@ -15,14 +15,11 @@ const SMPT_CONFIG = require('../smpt.js');
 const transporter = nodemailer.createTransport({
   host: SMPT_CONFIG.host,
   port: SMPT_CONFIG.port,
-  secure: false,
+  secure: true,
   auth: {
     user: SMPT_CONFIG.user,
     pass: SMPT_CONFIG.pass,
   },
-  tls: {
-    rejectUnauthorized: false
-  }
 });
 
 

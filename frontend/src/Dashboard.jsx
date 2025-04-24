@@ -79,7 +79,7 @@ const Dashboard = () => {
               Adicionar baralho
             </button>
 
-            <button  className='block sm:hidden cursor-pointer text-primary font-bold hover:text-white transition'>
+            <button onClick={() => setShowAddPopup(true)} className='block sm:hidden cursor-pointer text-primary font-bold hover:text-white transition'>
               <FaCirclePlus className="text-primary h-10 text-3xl block sm:hidden hover:text-gray-800 cursor-pointer" />
             </button>
             
