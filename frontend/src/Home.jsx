@@ -42,7 +42,15 @@ const Home = () => {
       <main className='bg-gray-200 -z-1'>      
         <SlidingCardsComponent />
       </main>
-      {/*<main className='flex flex-col items-center bg-gray-200 -z-1'>      
+      <main className="flex flex-col px-4 items-center bg-gray-200">
+        <div className='text-3xl text-center mb-4 font-bold'>
+          Seu cérebro foi <br/>feito para esquecer
+        </div>
+        <div className='w-full h-90 shadow-xl bg-gray-50 rounded-lg border border-gray-300'>
+          <ChartComponent/>
+        </div>
+      </main>
+      {/*<main className='flex flex-col items-center b -z-1'>      
         <div className='shadow-2xl relative h-70 w-1/2 border-gray-300 border bg-white rounded-lg mt-40'>
           <StudyComponent />
         </div>
@@ -54,7 +62,7 @@ const Home = () => {
           <div className='flex flex-col md:flex-row justify-center md:space-x-8 lg:space-x-20 w-full mb-12 sm:mb-20 px-4 sm:px-8 md:px-16 lg:px-25'>
             <div className='w-full md:w-1/2 lg:w-170 mb-8 md:mb-0'>
               <div className='w-full h-80 sm:h-130 flex flex-col items-center text-base relative'>
-                <ChartComponent />
+
               </div>
             </div>
             <div className='w-full md:w-1/2 text-gray-900 text-base sm:text-lg md:text-xl break-words text-justify'>

@@ -98,40 +98,6 @@ function Navbar({ destination = '' }) {
           </div>
         </div>
       </nav>
-      
-      {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed top-16 left-0 right-0 bg-white z-10 border-b border-gray-300 shadow-lg">
-          {isLoggedIn ? (
-            <div className="p-4">
-              <p className="font-semibold text-gray-900 mb-2">{user.name}</p>
-              <a 
-                onClick={() => { 
-                  logout(); 
-                  window.location.href = '/';
-                  setMobileMenuOpen(false);
-                }} 
-                className="block py-2 text-gray-800 hover:text-primary cursor-pointer"
-              >
-                Sair
-              </a>
-            </div>
-          ) : (
-            <div className="p-4 flex flex-col space-y-4">
-              {actionButtons.map((button) => (
-                <a 
-                  key={button.name}
-                  href={button.href}
-                  className={`transition font-medium py-2.5 px-3.5 rounded-md outline outline-primary text-center ${button.classNames}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className='align-[1px]'>{button.name}</span>
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
-      )}
     </>
   );
 }

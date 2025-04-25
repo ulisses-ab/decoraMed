@@ -15,7 +15,7 @@ const FeedbackButton = ({ color, text, time, onClick }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <button onClick={onClick} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{color: hover ? color : 'white', backgroundColor: hover ? 'transparent' : color, outline:`solid 1px ${color}`}} className={`w-30 py-3 rounded-md text-white transition hover:bg-white cursor-pointer font-semibold`}>
+    <button onClick={onClick} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{color: hover ? color : 'white', backgroundColor: hover ? 'transparent' : color, outline:`solid 1px ${color}`}} className={`w-full py-1 sm:py-3 rounded-md text-white transition hover:bg-white cursor-pointer font-semibold`}>
       <p>{text}</p>
       <p className='text-base -mt-1 font-normal'>{time}</p>
     </button>
@@ -180,10 +180,7 @@ const Study = () => {
       </div>
       {
         
-        <div className='fixed flex items-center px-8 justify-between w-full bottom-0 h-30 border-t bg-gray-100 border-gray-200' style={{boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'}}>
-          <div className='w-24 h-10'>
-
-          </div>
+        <div className='fixed flex items-center py-3 justify-center w-full bottom-0 border-t bg-gray-100 border-gray-200' style={{boxShadow: '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)'}}>
           {
             
             cardsEnded ? (<>
@@ -192,7 +189,7 @@ const Study = () => {
               </button>
             </>) :
             showAnswer ? (
-              <div className='flex space-x-2 rounded-2xl p-3 text-lg'>
+              <div className='w-full sm:w-2/3 -m-3 gap-2 sm:grid-cols-4 sm:grid-rows-1 grid grid-cols-2 grid-rows-2 rounded-2xl p-3 text-lg'>
                 {
                   [
                     { text: "De novo", color: "oklch(0.577 0.245 27.325)" }, 
@@ -207,15 +204,17 @@ const Study = () => {
                 
               </div>
             ) : (
-              <button onClick={handleShowAnswer} className='ring ring-primary py-5 text-xl font-semibold px-16 transition bg-primary text-white cursor-pointer hover:bg-transparent hover:text-primary rounded-lg'>
+              <button onClick={handleShowAnswer} className='ring whitespace-nowrap ring-primary py-5 text-xl font-semibold w-2/3 sm:w-1/3 transition bg-primary text-white cursor-pointer hover:bg-transparent hover:text-primary rounded-lg'>
                 Mostrar resposta
               </button>
             )
           }
-          <div className='relative' onClick={(e) => e.stopPropagation()}>
-            {cardsEnded ? (<div className='w-24 h-10'></div>) : (<button onClick={toggleOptions} className='ring ring-primary w-24 py-1 font-semibold transition hover:bg-primary hover:text-white cursor-pointer bg-transparent text-primary rounded-lg'>
-              Opções ▴
-            </button>)}
+          <div className='absolute right-10' onClick={(e) => e.stopPropagation()}>
+            {cardsEnded ? (<div className='w-24 h-10'></div>) : (
+              <button onClick={toggleOptions} className='sm:block hidden ring ring-primary w-24 py-1 font-semibold transition hover:bg-primary hover:text-white cursor-pointer bg-transparent text-primary rounded-lg'>
+                Opções ▴
+              </button>
+            )}
             {showOptions && (
               <div className='absolute right-0 bottom-10 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden'>
                 <ul>

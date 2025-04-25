@@ -31,7 +31,7 @@ const ChartComponent = () => {
         type: 'line',
         data: {
           labels: [
-            'Imediatamente',
+            '',
             '20 minutos',
             '1 hora',
             '9 horas',
@@ -78,7 +78,7 @@ const ChartComponent = () => {
                         color: 'rgb(10, 10, 10)',
                         font: {
                           family: 'ui-sans-serif, system-ui, sans-serif',
-                          size: 22,
+                          size: 10,
                           weight: 'bold',
                         },
                         padding: {
@@ -97,7 +97,7 @@ const ChartComponent = () => {
                         color: 'rgb(10, 10, 10)',
                         font: {
                           family: 'Arial',
-                          size: 22,
+                          size: 10,
                           weight: 'bold',
                         },
                         padding: {
@@ -167,21 +167,6 @@ const ChartComponent = () => {
     return (<>
         <div className='h-full w-full relative'>
             <canvas id="myChart" className='h-full w-full absolute'></canvas>
-        </div>
-
-        <div className='absolute' style={{left: `${annotationPosition1.x}px`, top: `${annotationPosition1.y}px`, transform: 'translate(9%, -100%)', opacity: annotationOpacity, transition: ' opacity 2s'}}>
-            <div className='text-gray-700 leading-4.5'>
-                <span className='font-semibold leading-6'>1 hora depois de estudar</span><br/>
-                Esquecemos de mais da metade <br/>do que estudamos
-            </div>
-            <PiArrowBendDownRightBold className='absolute bottom-[26%] -left-[13.5%] rotate-90 text-2xl text-gray-700'/>
-        </div>
-        <div className='absolute' style={{left: `${annotationPosition2.x}px`, top: `${annotationPosition2.y}px`, transform: 'translate(-109%, 60%)', opacity: annotationOpacity, transition: ' opacity 2s'}}>
-            <div className='text-gray-700 w-50 leading-4.5 text-right'>
-                <span className='font-semibold leading-6'>Uma semana depois</span><br/>
-                Quase tudo é perdido
-            </div>
-            <PiArrowBendDownRightBold className='absolute bottom-[35%] -right-[14.5%] rotate-270 text-2xl text-gray-700'/>
         </div>
     </>);
 }
