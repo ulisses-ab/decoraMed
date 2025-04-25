@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <canvas id='particle-canvas' className='hidden sm:block absolute w-full h-100 -z-1'></canvas>
+      <canvas id='particle-canvas' className='block absolute w-full h-100 -z-1'></canvas>
 
       <div className='flex flex-col sm:items-start items-center sm:mt-10 pb-3 sm:pb-30 bg-linear-to-t from-gray-200 to-transparent px-6 sm:px-10 md:px-20'>
         <main  className="mt-10">
@@ -44,9 +44,9 @@ const Home = () => {
       </main>
       <main className="flex flex-col px-4 items-center bg-gray-200">
         <div className='text-3xl text-center mb-4 font-bold'>
-          Seu cérebro foi <br/>feito para esquecer
+          Seu cérebro foi <br className='sm:hidden'/>feito para esquecer
         </div>
-        <div className='w-full h-90 shadow-xl bg-gray-50 rounded-lg border border-gray-300'>
+        <div className='w-full sm:w-2/3 sm:aspect-2/1 aspect-square shadow-xl bg-gray-50 rounded-lg border border-gray-300'>
           <ChartComponent/>
         </div>
       </main>
