@@ -78,7 +78,7 @@ const ChartComponent = () => {
                         color: 'rgb(10, 10, 10)',
                         font: {
                           family: 'ui-sans-serif, system-ui, sans-serif',
-                          size: 10,
+                          size: 20,
                           weight: 'bold',
                         },
                         padding: {
@@ -97,7 +97,7 @@ const ChartComponent = () => {
                         color: 'rgb(10, 10, 10)',
                         font: {
                           family: 'Arial',
-                          size: 10,
+                          size: 20,
                           weight: 'bold',
                         },
                         padding: {

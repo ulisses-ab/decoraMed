@@ -1,10 +1,20 @@
 import axios from 'axios';
-import { API_URL } from './../../config.json';
+import { API_URL } from '../../config.js';
 
 const getDeck = async (token, deckId) => {
     if(!deckId) return {};
 
     const response = await axios.get(`${API_URL}/decks/${deckId}`, {
+        headers: {
+            authorization: `Bearer ${token}`
+        }
+    });
+
+    return response.data;
+}
+
+const getUserDecks = async (token, userId) => {
+    const response = await axios.get(`${API_URL}/decks`, {
         headers: {
             authorization: `Bearer ${token}`
         }
@@ -50,4 +60,4 @@ const deleteDeck = async (token, parentDeckId) => {
     return response.data;
 }
 
-export { getDeck, newDeck, renameDeck, deleteDeck };
+export { getDeck, newDeck, getUserDecks, renameDeck, deleteDeck };

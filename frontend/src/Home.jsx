@@ -5,9 +5,9 @@ import { useAuth } from './authContext';
 import StudyComponent from './components/StudyComponent';
 import ChartComponent from './components/ChartComponent';
 import ChartComponent2 from './components/ChartComponent2';
-import Footer from './components/Footer'
 import run from './scripts/particles'
 import SlidingCardsComponent from './components/SlidingCardsComponent';
+import chart1 from './assets/chart1.png'
 
 const Home = () => {
   const { user, isLoggedIn } = useAuth();
@@ -29,7 +29,7 @@ const Home = () => {
         <main  className="mt-10">
           <div className="max-w-3xl text-gray-900  flex flex-col text-center sm:text-left items-center sm:items-start">
             <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold ">Aprenda a não esquecer</h1>
-            <p className="mt-4 text-md sm:text-xl font-normal">
+            <p className="mt-4 text-md sm:text-xl lg:text-3xl font-normal">
               São mais de 6.200 flashcards com todo o conteúdo necessário para que você seja aprovado na sua residência médica dos sonhos.
             </p>
 
@@ -42,11 +42,14 @@ const Home = () => {
       <main className='bg-gray-200 -z-1'>      
         <SlidingCardsComponent />
       </main>
-      <main className="flex flex-col px-4 items-center bg-gray-200">
+      <main className="flex flex-col px-4 items-center bg-gray-200 pb-40">
         <div className='text-3xl text-center mb-4 font-bold'>
           Seu cérebro foi <br className='sm:hidden'/>feito para esquecer
         </div>
-        <div className='w-full sm:w-2/3 sm:aspect-2/1 aspect-square shadow-xl bg-gray-50 rounded-lg border border-gray-300'>
+        <div className='sm:hidden block w-full p-4 aspect-square shadow-xl bg-gray-50 rounded-lg border border-gray-300'>
+          <img src={chart1} className='w-full'/>
+        </div>
+        <div className='hidden sm:block w-2/3 aspect-2/1 shadow-xl bg-gray-50 rounded-lg border border-gray-300'>
           <ChartComponent/>
         </div>
       </main>
@@ -92,7 +95,6 @@ const Home = () => {
                     
         </div>
       </main>*/}
-      <Footer />
     </>
   );
 };

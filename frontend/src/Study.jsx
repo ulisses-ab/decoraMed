@@ -10,6 +10,7 @@ import confetti from 'canvas-confetti';
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { MdVerified } from "react-icons/md";
 import Fade from './components/Fade'
+import { FaCheck } from "react-icons/fa";
 
 const FeedbackButton = ({ color, text, time, onClick }) => {
   const [hover, setHover] = useState(false);
@@ -151,11 +152,11 @@ const Study = () => {
           {
             cardsEnded ? (
               <div className='flex items-center justify-center flex-col mt-23 rounded-lg text-center text-xl'>
-                <MdVerified className='text-[10em] text-green-500'/>
-                <p className='font-bold text-4xl text-gray-900'>
-                  Parabéns, você concluiu a revisão!
+                  <FaCheck className='text-[7em] text-primary mb-4'/>
+                <p className='font-bold text-4xl text-gray-900 mb-5'>
+                  Parabéns, você concluiu a revisão
                 </p>
-                <p className='text-lg'>
+                <p className='text-2xl font-normal'>
                   Em breve novos cards estarão disponíveis
                 </p>
               </div>

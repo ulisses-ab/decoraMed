@@ -9,28 +9,34 @@ export default function run(id) {
     canvas.width = canvas.getBoundingClientRect().width
     canvas.height = canvas.getBoundingClientRect().height
 
-    new ParticleCanvas(canvas, {
+    const size_const = (canvas.width*canvas.height) / 860000;
+
+    console.log(size_const);
+
+    let config = {
         particles: {
-            number: (canvas.width*canvas.height) / 5000,
+            number: 142,
             size: {
-                min: 0.2,
-                max: 4,
+                min: 0.2 * size_const,
+                max: 4 * size_const,
             },
             velocity: {
-                min: 0.3,
-                max: 0.5,
+                min: 0.3 * size_const,
+                max: 0.5 * size_const,
             },
             color: "rgba(170, 170, 170, 0.4)",
         },
         lines: {
             color: "rgba(170, 170, 170, 0.4)",
-            maxLength: 190,
+            maxLength: 190 * size_const,
         },
         canvas: {
-            margin: 40,
+            margin: 40 * size_const,
         },
         interaction: {
-            distance: 100,
+            distance: 100 * size_const,
         }
-    });
+    };
+
+    new ParticleCanvas(canvas, config);
 }

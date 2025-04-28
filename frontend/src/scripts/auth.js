@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from './../../config.json';
+import { API_URL } from './../../config.js';
 
 const sendLogin = async (email, password) => {
     const response = await axios.post(`${API_URL}/auth/login`, {

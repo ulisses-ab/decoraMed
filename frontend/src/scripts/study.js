@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL } from './../../config.json';
+import { API_URL } from '../../config.js';
 
 const getDueCards = async (token, deckId) => {
     const response = await axios.get(`${API_URL}/study/${deckId}`, {

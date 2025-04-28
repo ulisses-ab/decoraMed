@@ -9,7 +9,7 @@ const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const SMPT_CONFIG = require('../smpt.js');
+const SMPT_CONFIG = require('../smtp.js');
 
 
 const transporter = nodemailer.createTransport({

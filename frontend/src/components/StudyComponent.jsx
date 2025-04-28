@@ -60,8 +60,11 @@ const StudyComponent = ({ cards }) => {
             {
               cardsEnded ? (
                 <div className='flex h-full w-full items-center justify-center text-green-500 absolute'>
-                  <div className='flex flex-col items-center text-center'>
+                  <div className='flex flex-col items-center text-xl font-semibold text-gray-900 text-center'>
                     <FaCheck className='text-[7em] text-primary mb-2'/>
+                    <div className='block sm:hidden'>
+                      Comece agora<br/>para mais flashcards como esses
+                    </div>
                   </div>
                 </div>
               ) 

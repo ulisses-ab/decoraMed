@@ -62,9 +62,20 @@ const Deck = ({ id, indent = 0, refreshParent }) => {
 
   return (
     <>
-      <div className="h-12 select-none flex justify-between transition hover:bg-[rgb(0,0,0)]/6 cursor-pointer" style={{paddingLeft: `${indent * 3 + 1}%`, paddingRight: "1.5%"}} onClick={toggleSubDecks} onMouseEnter={() => setShowActions(true)} onMouseLeave={() => setShowActions(false)}>
-        <div className='flex items-center space-x-3'>
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 transition ${showSubDecks ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <div className="h-12 select-none flex justify-between transition hover:bg-[rgb(0,0,0)]/6 cursor-pointer pl-2 pr-4" onClick={toggleSubDecks} onMouseEnter={() => setShowActions(true)} onMouseLeave={() => setShowActions(false)}>
+        <div className='flex items-center'>
+          <div className='flex items-end h-10'>
+            {Array.from({ length: indent }, () => (
+              <div className='flex'>
+                <div className='border-r border-gray-600 w-3 h-14 m-0'>
+                </div>
+                <div className='w-3 h-14 m-0'>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <svg xmlns="http://www.w3.org/2000/svg" className={` mr-2 h-6 w-6 transition ${showSubDecks ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 5l7 7-7 7" />
           </svg>
           <div className="text-lg font-semibold text-gray-800">{deck.name}</div>
@@ -76,7 +87,7 @@ const Deck = ({ id, indent = 0, refreshParent }) => {
           
           {
             showActions && (
-              <div className='flex items-center space-x-3 text-xl'>
+              <div className='hidden sm:flex items-center space-x-3 text-xl'>
                 <FaPlus className="text-gray-600 hover:text-gray-800 cursor-pointer" title="Novo sub-baralho" onClick={(e) => {e.stopPropagation(); setShowAddPopup(true);}}/>
                 <HiMiniPencilSquare  className="text-gray-600 hover:text-gray-800 cursor-pointer" title="Renomear baralho"  onClick={(e) => {e.stopPropagation(); setShowRenamePopup(true);}}/>
                 <RiShareForwardFill className="text-gray-600 hover:text-gray-800 cursor-pointer" title="Mover baralho" onClick={(e) => {e.stopPropagation()}}/>
@@ -86,7 +97,7 @@ const Deck = ({ id, indent = 0, refreshParent }) => {
           }
           {
             showActions && (
-              <div className='flex items-center space-x-3  text-gray-900'>
+              <div className='flex hidden sm:block items-center space-x-3  text-gray-900'>
                 <button className='transition outline-primary  text-primary font-semibold hover:bg-gray-300 rounded-md px-3 py-1 cursor-pointer' onClick={(e) => {e.stopPropagation(); setShowAddCardPopup(true)}}>
                   Adicionar cards
                 </button>

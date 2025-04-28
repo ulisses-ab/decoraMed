@@ -1,11 +1,13 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { sendLogin, getUser } from './scripts/auth';
+import { getUserDecks } from './scripts/decks';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [user, setUser] = useState({});
+  const [userDecks, setUserDecks] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -16,6 +18,7 @@ export const AuthProvider = ({ children }) => {
         if (!expiration || expiration < Date.now()) throw new Error();
         setUser(await getUser(token));
         setIsLoggedIn(true);
+        setUserDecks(await getUserDecks(token, user.rootDeckId));
       }
       catch (error) {
         setIsLoggedIn(false);

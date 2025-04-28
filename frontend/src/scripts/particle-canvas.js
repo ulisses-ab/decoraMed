@@ -102,7 +102,7 @@ class Particle {
             this.position.y, 
             otherParticle.position.x, 
             otherParticle.position.y, 
-            1, 
+            this.config.lines.width, 
             this.config.lines.color
         );
         this.ctx.globalAlpha = 1;

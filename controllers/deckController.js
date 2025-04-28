@@ -30,6 +30,11 @@ const getDeck = asyncHandler(async (req, res) => {
     res.json(deck);
 });
 
+const getUserDecks = asyncHandler(async (req, res) => {
+    const decks = await Deck.find({ userId: req.user._id });
+    res.json(decks);
+})
+
 const updateDeck = asyncHandler(async (req, res) => {
     const deck = await validateAndGetDeck(req.params.id, req.user._id, false);
     const { name, parentDeckId: newParentDeckId } = req.body;
@@ -88,4 +93,4 @@ const getChildren = asyncHandler(async (req, res) => {
 });
  
 
-module.exports = { createDeck, getDeck, updateDeck, deleteDeck, getChildren };
+module.exports = { createDeck, getDeck, getUserDecks, updateDeck, deleteDeck, getChildren };

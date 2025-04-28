@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const { createEmptyCard } = require('ts-fsrs');
 const dotenv = require('dotenv');
 dotenv.config();
-const SMPT_CONFIG = require('./smpt.js');
+const SMPT_CONFIG = require('./smtp.js');
 
 function createError(message, status) {
     const error = new Error(message);
