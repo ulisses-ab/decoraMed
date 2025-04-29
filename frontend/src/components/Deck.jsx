@@ -10,6 +10,7 @@ import RemoveDeck from './RemoveDeck';
 import AddCard from './AddCard';
 import { HiMiniPencilSquare } from "react-icons/hi2";
 import { BiSolidEditAlt } from "react-icons/bi";
+import { useAuth } from './../authContext';
 
 
 const Deck = ({ id, indent = 0, refreshParent }) => {
@@ -19,31 +20,33 @@ const Deck = ({ id, indent = 0, refreshParent }) => {
   const [showSubDecks, setShowSubDecks] = useState(false);
   const [showActions, setShowActions] = useState(false);
 
+  const fetchDeck = async (iid) => {
+    const ls = localStorage.getItem(iid);
+    if (ls) {
+      return JSON.parse(ls);
+    }
+
+    return await getDeck(localStorage.getItem('token'), iid);
+  }
+
   const refresh = () => {
-    const fetchDeck = async () => {
-      try {
-        setDeck(await getDeck(localStorage.getItem('token'), id));
-      }
-      catch {
-        setDeck(null);
-      }
+    const fd = async () => {
+      const deck = await fetchDeck(id);
+      setDeck(deck);
     }
+    fd();
 
-    fetchDeck();
-
-    const fetchCards = async () => {
-      try {
-        setCardsDue(await getDueCards(localStorage.getItem('token'), id));
-      }
-      catch {
-        setCardsDue([]);
-      }
-    }
-
-    fetchCards();
-
+    setCardsDue([1]);
     refreshParent();
   }
+
+  const sequence = (n) => {
+    const seq = [];
+    for (let i = 0; i < n; i++) {
+      seq.push(i);
+    }
+    return seq;
+  };
 
   useEffect(refresh, [id]);
 
@@ -65,8 +68,8 @@ const Deck = ({ id, indent = 0, refreshParent }) => {
       <div className="h-12 select-none flex justify-between transition hover:bg-[rgb(0,0,0)]/6 cursor-pointer pl-2 pr-4" onClick={toggleSubDecks} onMouseEnter={() => setShowActions(true)} onMouseLeave={() => setShowActions(false)}>
         <div className='flex items-center'>
           <div className='flex items-end h-10'>
-            {Array.from({ length: indent }, () => (
-              <div className='flex'>
+            {sequence(indent).map((el) => (
+              <div className='flex' key={el}>
                 <div className='border-r border-gray-600 w-3 h-14 m-0'>
                 </div>
                 <div className='w-3 h-14 m-0'>

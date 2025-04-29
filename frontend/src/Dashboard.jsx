@@ -22,18 +22,21 @@ const Dashboard = () => {
   }, [isLoggedIn]);
 
 
-  const refresh = async () => {
-    const fetchDeck = async () => {
-      try {
-        setDeck(await getDeck(localStorage.getItem('token'), user.rootDeckId));
-      }
-      catch {
-        console.log("err");
-        setDeck(null);
-      }
+  const fetchDeck = async (iid) => {
+    const ls = localStorage.getItem(iid);
+    if (ls) {
+      return JSON.parse(ls);
     }
 
-    fetchDeck();
+    return await getDeck(localStorage.getItem('token'), iid);
+  }
+
+  const refresh = async () => {
+    const fd = async () => {
+      const deck = await fetchDeck(user.rootDeckId);
+      setDeck(deck);
+    }
+    fd();
 
     const fetchCards = async () => {
       try {
@@ -57,7 +60,7 @@ const Dashboard = () => {
       <Fade />
       <Navbar destination='dashboard'/> 
       <div className="flex justify-center">
-        <div className="w-full sm:w-2/3 py-6 sm:p-6">
+        <div className="w-full md:w-240 py-6 sm:p-6">
           <div className='flex flex-col mb-10 sm:mb-14 items-center'>
             <div className={`text-center text-3xl ${cardsDue.length === 0 ? "text-gray-500" : "text-primary font-bold"}`}>
               {cardsDue.length}

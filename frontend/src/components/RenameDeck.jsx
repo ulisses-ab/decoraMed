@@ -8,8 +8,13 @@ const RenameDeck = ({ id, name, close, refresh }) => {
     
     const handleRenameDeck = async (e) => {
         e.preventDefault();
-        renameDeck(localStorage.getItem('token'), id, deckName.value).then(() => refresh());
+        let deck = localStorage.getItem(id);
+        deck = JSON.parse(deck);
+        deck.name = deckName.value;
+        localStorage.setItem(id, JSON.stringify(deck));
+        refresh();
         close();
+        await renameDeck(localStorage.getItem('token'), id, deckName.value);
     };
 
     useEffect(() => {

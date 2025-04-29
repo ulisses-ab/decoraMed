@@ -7,7 +7,6 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [user, setUser] = useState({});
-  const [userDecks, setUserDecks] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -18,19 +17,23 @@ export const AuthProvider = ({ children }) => {
         if (!expiration || expiration < Date.now()) throw new Error();
         setUser(await getUser(token));
         setIsLoggedIn(true);
-        setUserDecks(await getUserDecks(token, user.rootDeckId));
+        const ud = await getUserDecks(token, user.rootDeckId);
+        const userDecksObj = {};
+        ud.forEach(deck => {
+          localStorage.setItem(deck._id, JSON.stringify(deck));
+        });
       }
       catch (error) {
         setIsLoggedIn(false);
       }
     }
-   
     fetchUser();
+
+
   }, []);
 
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('expiration');
+    localStorage.clear();
     setIsLoggedIn(false);
     setUser({});
   }

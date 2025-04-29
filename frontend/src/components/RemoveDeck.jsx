@@ -9,8 +9,15 @@ const RemoveDeck = ({ parentDeck, parentName, close, refresh }) => {
     
     const handleDeleteDeck = async (e) => {
         e.preventDefault();
-        deleteDeck(localStorage.getItem('token'), parentDeck).then(() => refresh());
+        const d = JSON.parse(localStorage.getItem(parentDeck));
+        localStorage.removeItem(parentDeck);
+        const parentD = JSON.parse(localStorage.getItem(d.parentDeckId));
+        parentD.subDecks = parentD.subDecks.filter(deck => deck !== parentDeck);
+        localStorage.setItem(d.parentDeckId, JSON.stringify(parentD));
+        refresh();
         close();
+
+        await deleteDeck(localStorage.getItem('token'), parentDeck);
     };
     
     return (

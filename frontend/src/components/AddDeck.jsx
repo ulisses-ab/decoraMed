@@ -8,9 +8,15 @@ const AddDeck = ({ parentDeck, parentName, close, refresh }) => {
     const [name, setName] = useState('');
     
     const handleAddDeck = async (e) => {
-        e.preventDefault();
-        newDeck(localStorage.getItem('token'), parentDeck, deckName.value).then(() => refresh());
         close();
+        e.preventDefault();
+        const deck = await newDeck(localStorage.getItem('token'), parentDeck, deckName.value);
+        console.log(deck);
+        localStorage.setItem(deck._id, JSON.stringify(deck));
+        const parentD = JSON.parse(localStorage.getItem(deck.parentDeckId));
+        parentD.subDecks.push(deck._id);
+        localStorage.setItem(deck.parentDeckId, JSON.stringify(parentD));
+        refresh();
     };
     
     return (
